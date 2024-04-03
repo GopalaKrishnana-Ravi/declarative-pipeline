@@ -1,5 +1,8 @@
+def maven_dir = "/Hello_world"
 pipeline {
-    agent QA
+    agent {
+        label 'QA'
+    }
 
     stages {
         stage('Checkout') {
@@ -10,9 +13,12 @@ pipeline {
     }
 
     stages {
-        step ('maven build') {
+        stage ('maven build') {
             step {
-                mvn clean install
+                dir("$(maven_dir)") {
+
+                    mvn clean install
+                }
             }
         }
     }

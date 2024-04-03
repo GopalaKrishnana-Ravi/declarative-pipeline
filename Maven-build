@@ -1,0 +1,19 @@
+pipeline {
+    agent QA
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'dev', url: 'https://github.com/GopalaKrishnana-Ravi/declarative-pipeline.git'
+            }
+        }
+    }
+
+    stages {
+        step ('maven build') {
+            step {
+                mvn clean install
+            }
+        }
+    }
+}

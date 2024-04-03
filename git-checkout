@@ -1,0 +1,11 @@
+pipeline {
+    agent any
+
+    stages{
+        stage('Checkout'){
+            step{
+                git branch: 'dev', url: 'https://github.com/GopalaKrishnana-Ravi/declarative-pipeline.git'
+            }
+        }
+    }
+}

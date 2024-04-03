@@ -1,9 +1,9 @@
 pipeline {
     agent any
 
-    stages{
-        stage('Checkout'){
-            step{
+    stages {
+        stage('Checkout') {
+            steps {
                 git branch: 'dev', url: 'https://github.com/GopalaKrishnana-Ravi/declarative-pipeline.git'
             }
         }
